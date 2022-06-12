@@ -1,0 +1,26 @@
+type Query {
+    project(id: ID!): Project
+    projects: [Project]
+    clients: [Client]
+}
+
+type Client {
+    id: ID
+    name: String
+    email: String
+    phone: String
+}
+
+type Project {
+    id: ID
+    name: String
+    description: String
+    status: Status
+    client: Client
+}
+
+enum Status {
+    pending
+    ongoing
+    completed
+}

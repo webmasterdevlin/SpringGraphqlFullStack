@@ -26,10 +26,17 @@ public class GraphQLProvider {
 
     private GraphQL graphQL;
 
+    @Bean // exposed as a Spring Bean via the graphQL()
+    public GraphQL graphQL() {
+        return graphQL;
+    }
+
     public GraphQLProvider(GraphQLDataFetchers graphQLDataFetchers) {
         this.graphQLDataFetchers = graphQLDataFetchers;
     }
 
+   /* init method to create a GraphQL instance.
+    Guava Resources to read the file from our classpath.*/
     @PostConstruct
     public void init() throws IOException {
         URL url = Resources.getResource("schema.graphqls");
@@ -38,13 +45,17 @@ public class GraphQLProvider {
         this.graphQL = GraphQL.newGraphQL(graphQLSchema).build();
     }
 
+    // creates the GraphQLSchema instance and wires in code to fetch data
     private GraphQLSchema buildSchema(String sdl) {
+        // TypeDefinitionRegistry is the parsed version of our schema file.
         TypeDefinitionRegistry typeRegistry = new SchemaParser().parse(sdl);
         RuntimeWiring runtimeWiring = buildWiring();
+        // SchemaGenerator combines the TypeDefinitionRegistry with RuntimeWiring to actually make the GraphQLSchema.
         SchemaGenerator schemaGenerator = new SchemaGenerator();
         return schemaGenerator.makeExecutableSchema(typeRegistry, runtimeWiring);
     }
 
+    // buildWiring uses the graphQLDataFetchers bean to actually register the data fetchers:
     private RuntimeWiring buildWiring() {
         return RuntimeWiring.newRuntimeWiring()
                 .type(newTypeWiring("Query")
@@ -57,10 +68,4 @@ public class GraphQLProvider {
                         .dataFetcher("clients", graphQLDataFetchers.getClientsDataFetcher()))
                 .build();
     }
-
-    @Bean
-    public GraphQL graphQL() {
-        return graphQL;
-    }
-
 }

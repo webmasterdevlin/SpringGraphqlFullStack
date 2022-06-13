@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+//  data can come from a static in memory list, from a database or an external service
 @Component
 public class GraphQLDataFetchers {
 
@@ -74,6 +75,7 @@ public class GraphQLDataFetchers {
                     "phone","321-468-8887")
 );
 
+    // DataFetcher or Resolver (most common terminology)
     public DataFetcher getProjectsDataFetcher() {
         return dataFetchingEnvironment -> projects.stream();
     }
@@ -89,6 +91,7 @@ public class GraphQLDataFetchers {
         };
     }
 
+    // DataFetcher or Resolver (most common terminology)
     public DataFetcher getClientsDataFetcher() {
         return dataFetchingEnvironment -> clients.stream();
     }

@@ -4,19 +4,19 @@ type Query {
     clients: [Client]
 }
 
-type Client {
-    id: ID
-    name: String
-    email: String
-    phone: String
-}
-
 type Project {
     id: ID
     name: String
     description: String
     status: Status
     client: Client
+}
+
+type Client {
+    id: ID
+    name: String
+    email: String
+    phone: String
 }
 
 enum Status {

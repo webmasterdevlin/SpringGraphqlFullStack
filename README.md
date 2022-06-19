@@ -8,3 +8,6 @@ Spring Boot GraphQL Endpoint
 
 React App
 - localhost:3000
+
+GraphiQL Client
+- http://localhost:8080/graphiql

@@ -16,7 +16,7 @@ public class ClientMutation {
     ClientRepository clientRepository;
 
     @MutationMapping
-    public Client newClient(@Argument("input") ClientInput input) {
+    public Client newClient(@Argument ClientInput input) {
         Client client = new Client();
         client.setName(input.getName());
         client.setEmail(input.getEmail());

@@ -16,7 +16,7 @@ public class ProjectMutation {
     ClientRepository clientRepository;
 
     @MutationMapping
-    public Project newProject(@Argument("input") ProjectInput input) {
+    public Project newProject(@Argument ProjectInput input) {
         Project project = new Project();
         project.setName(input.getName());
         project.setDescription(input.getDescription());

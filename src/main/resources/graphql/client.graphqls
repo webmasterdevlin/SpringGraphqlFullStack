@@ -1,0 +1,12 @@
+type Client {
+    id: ID
+    name: String
+    email: String
+    phone: String
+}
+
+input ClientInput {
+    name: String
+    email: String
+    phone: String
+}

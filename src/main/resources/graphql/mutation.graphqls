@@ -1,0 +1,6 @@
+type Mutation {
+    newProject(input: ProjectInput): Project
+    deleteProject(id: ID!): ID
+    newClient(input: ClientInput): Client
+    deleteClient(id: ID!): ID
+}

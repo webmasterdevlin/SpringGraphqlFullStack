@@ -34,11 +34,11 @@ mutation createProject($projectInput: ProjectInput) {
     }
   }
 }
-mutation removeClient($clientId:ID!) {
-  deleteClient(id:$clientId)
-}
 mutation removeProject($projectId:ID!) {
   deleteProject(id:$projectId)
+}
+mutation removeClient($clientId:ID!) {
+  deleteClient(id:$clientId)
 }
 ```
 ### Sample Variables for Mutaions
@@ -55,8 +55,8 @@ mutation removeProject($projectId:ID!) {
     "email": "ironman@gmail.com",
     "phone": "343-567-4333"
   },
-  "clientId":"1",
-  "projectId":"1"
+  "projectId":"1",
+  "clientId":"1"
 }
 ```
 

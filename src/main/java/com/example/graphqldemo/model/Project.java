@@ -1,11 +1,11 @@
-package com.example.springgraphqlfullstack.model;
+package com.example.graphqldemo.model;
 
-import com.example.springgraphqlfullstack.enums.Status;
+import com.example.graphqldemo.enums.Status;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Data

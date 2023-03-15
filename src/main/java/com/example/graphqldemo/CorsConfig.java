@@ -1,4 +1,4 @@
-package com.example.springgraphqlfullstack;
+package com.example.graphqldemo;
 
 
 import org.springframework.context.annotation.Bean;

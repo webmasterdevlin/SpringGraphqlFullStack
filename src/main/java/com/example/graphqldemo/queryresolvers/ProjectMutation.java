@@ -1,9 +1,9 @@
-package com.example.springgraphqlfullstack.queryresolvers;
+package com.example.graphqldemo.queryresolvers;
 
-import com.example.springgraphqlfullstack.model.Project;
-import com.example.springgraphqlfullstack.repository.ClientRepository;
-import com.example.springgraphqlfullstack.repository.ProjectRepository;
-import com.example.springgraphqlfullstack.types.ProjectInput;
+import com.example.graphqldemo.model.Project;
+import com.example.graphqldemo.repository.ClientRepository;
+import com.example.graphqldemo.repository.ProjectRepository;
+import com.example.graphqldemo.types.ProjectInput;
 import lombok.AllArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;

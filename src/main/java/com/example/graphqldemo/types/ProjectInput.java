@@ -1,7 +1,6 @@
-package com.example.springgraphqlfullstack.types;
+package com.example.graphqldemo.types;
 
-import com.example.springgraphqlfullstack.enums.Status;
-import com.example.springgraphqlfullstack.model.Client;
+import com.example.graphqldemo.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
 

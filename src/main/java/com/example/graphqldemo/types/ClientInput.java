@@ -1,4 +1,4 @@
-package com.example.springgraphqlfullstack.types;
+package com.example.graphqldemo.types;
 
 import lombok.Getter;
 import lombok.Setter;

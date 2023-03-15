@@ -1,6 +1,6 @@
-package com.example.springgraphqlfullstack.repository;
+package com.example.graphqldemo.repository;
 
-import com.example.springgraphqlfullstack.model.Client;
+import com.example.graphqldemo.model.Client;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

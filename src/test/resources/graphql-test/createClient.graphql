@@ -6,24 +6,3 @@ mutation createClient($clientInput: ClientInput) {
         phone
     }
 }
-
-mutation createProject($projectInput: ProjectInput) {
-    newProject(input:$projectInput) {
-        id
-        name
-        description
-        status
-        client {
-            id
-            name
-            email
-            phone
-        }
-    }
-}
-mutation removeProject($projectId:ID!) {
-    deleteProject(id:$projectId)
-}
-mutation removeClient($clientId:ID!) {
-    deleteClient(id:$clientId)
-}

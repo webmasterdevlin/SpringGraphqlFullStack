@@ -1,10 +1,10 @@
-package com.example.springgraphqlfullstack.model;
+package com.example.graphqldemo.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Data

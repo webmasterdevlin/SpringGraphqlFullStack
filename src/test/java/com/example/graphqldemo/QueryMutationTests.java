@@ -1,14 +1,20 @@
-package com.example.springgraphqlfullstack;
+package com.example.graphqldemo;
 
-import com.example.springgraphqlfullstack.model.Client;
-import com.example.springgraphqlfullstack.queryresolvers.ClientMutation;
+import com.example.graphqldemo.model.Client;
+import com.example.graphqldemo.queryresolvers.ClientMutation;
+import com.example.graphqldemo.repository.ClientRepository;
+import com.example.graphqldemo.repository.ProjectRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.graphql.GraphQlTest;
 import org.springframework.graphql.test.tester.GraphQlTester;
 
 @GraphQlTest(ClientMutation.class)
-public class QueryResolversTests {
+public class QueryMutationTests {
+    @Autowired
+    ProjectRepository projectRepository;
+    @Autowired
+    ClientRepository clientRepository;
 
     @Autowired
     private GraphQlTester graphQlTester;
@@ -21,8 +27,8 @@ public class QueryResolversTests {
         value.setPhone("343-567-4333");
 
         this.graphQlTester
-                .document("app")
-                .variable("clientInput",value)
+                .document("createClient")
+                .variable("clientInput","value")
                 .execute()
                 .path("newClient")
                 .matchesJson("""

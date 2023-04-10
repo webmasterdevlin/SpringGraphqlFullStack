@@ -18,11 +18,11 @@ public class ProjectMutation {
     @MutationMapping
     public Project newProject(@Argument ProjectInput input) {
         Project project = new Project();
-        project.setName(input.getName());
-        project.setDescription(input.getDescription());
-        project.setStatus(input.getStatus());
-        if (clientRepository.findById(input.getClientId()).isPresent())
-            project.setClient(clientRepository.findById(input.getClientId()).get());
+        project.setName(input.name());
+        project.setDescription(input.description());
+        project.setStatus(input.status());
+        if (clientRepository.findById(input.clientId()).isPresent())
+            project.setClient(clientRepository.findById(input.clientId()).get());
 
         return projectRepository.save(project);
     }

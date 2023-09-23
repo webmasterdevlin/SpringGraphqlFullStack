@@ -4,7 +4,7 @@
 - localhost:8080/graphql
 
 ### React App
-- localhost:3000
+- localhost:5173
 
 ### GraphiQL Client
 - http://localhost:8080/graphiql

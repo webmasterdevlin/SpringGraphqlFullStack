@@ -13,8 +13,8 @@ export default function AddClientModal() {
 
   const [addProject] = useMutation(ADD_PROJECT, {
     variables: { name, description, clientId, status },
-    update(cache, { data: { newProject } }) {
-      const { projects } = cache.readQuery({ query: GET_PROJECTS });
+    update: (cache, { data: { newProject } }) => {
+      const { projects } = cache.readQuery<any>({ query: GET_PROJECTS });
       cache.writeQuery({
         query: GET_PROJECTS,
         data: { projects: [...projects, newProject] },

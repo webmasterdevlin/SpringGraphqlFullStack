@@ -8,8 +8,10 @@ export default function ClientRow({ client }) {
   const [deleteClient] = useMutation(DELETE_CLIENT, {
     variables: { clientId: client.id },
     refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }],
-    update(cache, { data: { deleteClient: id } }) {
-      const { clients } = cache.readQuery({ query: GET_CLIENTS });
+    update: (cache, { data: { deleteClient: id } }) => {
+      const { clients } = cache.readQuery<any>({
+        query: GET_CLIENTS,
+      });
       cache.writeQuery({
         query: GET_CLIENTS,
         data: {
@@ -25,7 +27,10 @@ export default function ClientRow({ client }) {
       <td>{client.email}</td>
       <td>{client.phone}</td>
       <td>
-        <button className="btn btn-danger btn-sm" onClick={deleteClient}>
+        <button
+          className="btn btn-danger btn-sm"
+          onClick={async () => await deleteClient()}
+        >
           <FaTrash />
         </button>
       </td>

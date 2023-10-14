@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from "@apollo/client"; // Relay or Apollo/Client
 
 const ADD_CLIENT = gql`
   mutation createClient($clientInput: ClientInput) {
